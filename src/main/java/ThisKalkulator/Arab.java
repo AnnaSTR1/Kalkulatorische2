@@ -24,28 +24,23 @@ public class Arab{
             return;
         }
     }
-    public static void operator2(char oper, int a, int b){
-        int c;
+    public static int operator2(char oper, int a, int b){
         switch (oper) {
             case '+' -> {
-                c = a + b;
-                System.out.print("ans " + c);
-            }
+                return a + b;
+                            }
             case '-' -> {
-                c = a- b;
-                System.out.print("ans " + c);
-            }
+                return a- b;
+                            }
             case '*' -> {
-                c = a * b;
-                System.out.print("ans " + c);
-            }
+                return a * b;
+                            }
             case '/' -> {
-                c = a / b;
-                System.out.print("ans " + c);
-            }
-            default -> {
-                System.out.print("Error! Enter correct operator");
-            }
+                return a / b;
+                           }
+            default ->
+                    throw new IllegalArgumentException();
+
         }
     }
 }

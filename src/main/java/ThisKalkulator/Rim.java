@@ -1,68 +1,11 @@
 package ThisKalkulator;
 
-import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.security.Key;
 import java.util.HashMap;
-import java.util.InputMismatchException;
 import java.util.Map;
 
 public class Rim {
 
-   //  public static int strToSting(String r1) {
-    //    try {
-     //       if (r1.equals("I")) {
-     //           return 1;
-      //      } else if (r1.equals("II")) {
-     //           return 2;
-      //      } else if (r1.equals("III")) {
-      //          return 3;
-      //      } else if (r1.equals("IV")) {
-      //          return 4;
-      //      } else if (r1.equals("V")) {
-      //          return 5;
-      //      } else if (r1.equals("VI")) {
-      //          return 6;
-      //      } else if (r1.equals("VII")) {
-      //          return 7;
-       //     } else if (r1.equals("VIII")) {
-       //         return 8;
-       //     } else if (r1.equals("IX")) {
-        //        return 9;
-       //     } else if (r1.equals("X")) {
-       //         return 10;
-      //      }
-    //    }catch(InputMismatchException e){
-   //         throw new InputMismatchException("enter a valid number");
-   //     }
-   //     return 0;
- //   }
-
-
-
-    public static void rin(String r1) {
-        Map<String, Integer> rin = new HashMap<String, Integer>();
-        rin.put("I", 1);
-        rin.put("II", 2);
-        rin.put("III", 3);
-        rin.put("IV", 4);
-        rin.put("V", 5);
-        rin.put("VI", 6);
-        rin.put("VII", 7);
-        rin.put("VIII", 8);
-        rin.put("IX", 9);
-        rin.put("X", 10);
-
-       System.out.println(rin.get(r1));
-
-
-
-
-    }
-
-    public static void rinn(String r2){
+    public static Integer rinn(String  r2){
         Map<String, Integer> rinn = new HashMap<String, Integer>();
         rinn.put("I", 1);
         rinn.put("II", 2);
@@ -75,9 +18,61 @@ public class Rim {
         rinn.put("IX", 9);
         rinn.put("X", 10);
 
-      // System.out.println(rinn.get(r2));
+       return rinn.get(r2);
 
     }
+
+    public static String resultRim(int number) {
+        int[] massArab = new int[]{100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] massRim = new String[]{"C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < massArab.length; i += 1) {
+            while (number >= massArab[i]) {
+                number -= massArab[i];
+                res.append(massRim[i]);
+            }
+        }
+        return res.toString();
+
+    }
+
+
+
+
+
+
+
+
+
+
+//  public static int strToSting(String r1) {
+    //    try {
+    //       if (r1.equals("I")) {
+    //           return 1;
+    //      } else if (r1.equals("II")) {
+    //           return 2;
+    //      } else if (r1.equals("III")) {
+    //          return 3;
+    //      } else if (r1.equals("IV")) {
+    //          return 4;
+    //      } else if (r1.equals("V")) {
+    //          return 5;
+    //      } else if (r1.equals("VI")) {
+    //          return 6;
+    //      } else if (r1.equals("VII")) {
+    //          return 7;
+    //     } else if (r1.equals("VIII")) {
+    //         return 8;
+    //     } else if (r1.equals("IX")) {
+    //        return 9;
+    //     } else if (r1.equals("X")) {
+    //         return 10;
+    //      }
+    //    }catch(InputMismatchException e){
+    //         throw new InputMismatchException("enter a valid number");
+    //     }
+    //     return 0;
+    //   }
 
 
 
