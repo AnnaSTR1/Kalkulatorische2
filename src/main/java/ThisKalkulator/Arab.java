@@ -30,7 +30,7 @@ public class Arab{
                 return a + b;
                             }
             case '-' -> {
-                return a- b;
+                return a - b;
                             }
             case '*' -> {
                 return a * b;
