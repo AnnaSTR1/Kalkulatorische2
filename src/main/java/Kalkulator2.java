@@ -1,4 +1,5 @@
 import ThisKalkulator.*;
+
 import java.util.Scanner;
 
 import static ThisKalkulator.Arab.operator1;
@@ -15,28 +16,25 @@ public class Kalkulator2 {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter formula");
 
-        if(s.hasNextInt()) {
+        if (s.hasNextInt()) {
 
-            try {
-                throw new IndexOutOfBoundsException();
-            }catch (IndexOutOfBoundsException pa) {
-                System.out.print("enter only two numbers");
+            String expo = s.nextLine();
+            String[] operand = expo.split(" ");
+            String ar = operand[0];
+            oper = operand[1].charAt(0);
+            String br = operand[2];
+
+            int a = Integer.parseInt(ar);
+            int b = Integer.parseInt(br);
+
+            if (operand.length != 3) {
+                throw new ArrayIndexOutOfBoundsException("enter exactly 2 numbers");
             }
-            System.exit(1);
-            int a = s.nextInt();
-            oper = s.next().charAt(0);
-            int b = s.nextInt();
 
             operator1(a, b);
             System.out.print(operator2(oper, a, b));
 
-        } else if (s.hasNextLine()){
-            try {
-                throw new ArrayIndexOutOfBoundsException();
-            }catch (ArrayIndexOutOfBoundsException pa) {
-                System.out.print("enter only two numbers");
-            }
-            System.exit (1);
+        } else if (s.hasNextLine()) {
 
             String exp = s.nextLine();
             String[] operands = exp.split(" ");
@@ -47,28 +45,18 @@ public class Kalkulator2 {
             int num1 = rinn(r1);
             int num2 = rinn(r2);
 
-            operator2(oper, num1, num2);
-
-            if (num1 - num2 < 1) {
-                try {
-                    throw new  ArithmeticException();
-                }catch (ArithmeticException jo) {
-                    System.out.print("result < I");
-                }
-            } else if (num1 / num2 < 1) {
-                try {
-                    throw new  ArithmeticException();
-                }catch (ArithmeticException jo) {
-                    System.out.print("result < I");
-                }
+            if (operands.length != 3) {
+                throw new ArrayIndexOutOfBoundsException("enter exactly 2 numbers");
             }
-                else {
+
+            if (operator2(oper, num1, num2) < 1) {
+                throw new ArithmeticException("result < I");
+            } else {
                 System.out.println(resultRim(operator2(oper, num1, num2)));
             }
 
-        } else {
+        } else
             System.out.println("enter a valid formula");
-        }
     }
 }
 
